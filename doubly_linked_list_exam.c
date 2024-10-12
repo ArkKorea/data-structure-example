@@ -52,5 +52,20 @@ void insert(int elem, int location){
         addNode->prev = curNode;
         curNode->next = addNode;
     }
+}
 
+void delete(int elem){
+    struct Node* curNode = head;
+    while(curNode->next != NULL || curNode->data != elem){
+        curNode = curNode->next;
+    }
+    if(curNode->data == elem){
+        curNode->prev->next = curNode->next;
+        curNode->next->prev = curNode->prev;
+        free(curNode);
+        return;
+    }
+    else{
+        printf("Not found\n");
+    }
 }
