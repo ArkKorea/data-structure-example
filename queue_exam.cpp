@@ -1,6 +1,5 @@
 #include<iostream>
 using namespace std;
-// back, front, push, pop, size, empty, emplace, swap
 
 template<typename T>
 class queue{
