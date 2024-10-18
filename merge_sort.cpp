@@ -3,17 +3,17 @@
 #include<algorithm>
 using namespace std;
 
-// ¿©·¯ ÇÔ¼ö¿¡ ¾²ÀÌ¹Ç·Î Àü¿ªº¯¼ö·Î ¼±¾ğ
+// ì—¬ëŸ¬ í•¨ìˆ˜ì— ì“°ì´ë¯€ë¡œ ì „ì—­ë³€ìˆ˜ë¡œ ì„ ì–¸
 vector<int> vec = {3,2,5,7,4,8,6,9,1};
 
-// º´ÇÕ
+// ë³‘í•©
 void Merge(int low, int middle, int high) {
 	vector<int> sortedVec(vec.size());
 	int i = low;
 	int j = middle + 1;
 	int k = low;
 
-	// ºĞÇÒ º¤ÅÍ ÇÕº´
+	// ë¶„í•  ë²¡í„° í•©ë³‘
 	while (i <= middle && j <= high) {
 		if(vec[i] <= vec[j]){
 			sortedVec[k++] = vec[i++];
@@ -22,18 +22,18 @@ void Merge(int low, int middle, int high) {
 			sortedVec[k++] = vec[j++];
 	}
 
-	// µŞÂÊ º¤ÅÍÀÇ °ªÀÌ ³²¾ÒÀ» ¶§
+	// ë’·ìª½ ë²¡í„°ì˜ ê°’ì´ ë‚¨ì•˜ì„ ë•Œ
 	if(i > middle){
 		for(int idx = j; idx <= high; idx++)
 			sortedVec[k++] = vec[idx];
 	}
-	// ¾Õ º¤ÅÍÀÇ °ªÀÌ ³²¾ÒÀ» ¶§
+	// ì• ë²¡í„°ì˜ ê°’ì´ ë‚¨ì•˜ì„ ë•Œ
 	else{ 
 		for(int idx = i; idx <= middle; idx++)
 			sortedVec[k++] = vec[idx];
 	}
 
-	// ±âÁ¸ ¹è¿­¿¡ ´Ù½Ã ³Ö¾î Àç»ç¿ë
+	// ê¸°ì¡´ ë°°ì—´ì— ë‹¤ì‹œ ë„£ì–´ ì¬ì‚¬ìš©
 	copy(sortedVec.begin()+low, sortedVec.begin()+high+1, vec.begin()+low);
 }
 
@@ -49,11 +49,11 @@ int main() {
 	int low = 0;
 	int high = vec.size() - 1;
 	cout << "before: ";
-	for (int i : vec) // Á¤·Ä Àü ¹è¿­ Ãâ·Â
+	for (int i : vec) // ì •ë ¬ ì „ ë°°ì—´ ì¶œë ¥
 		cout << i << " ";
 	MS(low, high);
 	cout << "\nafter: ";
-	for (int i : vec) // Á¤·Ä ÈÄ ¹è¿­ Ãâ·Â
+	for (int i : vec) // ì •ë ¬ í›„ ë°°ì—´ ì¶œë ¥
 		cout << i << " ";
 
 	return 0;

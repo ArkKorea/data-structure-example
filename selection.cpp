@@ -3,12 +3,10 @@
 #include<random>
 #include<ctime>
 using namespace std;
-// n개 숫자에서 k번째 작은 수 찾기
 
 int partition(vector<int> vec, int left, int right){
     srand(static_cast<unsigned int> (time(0)));
     int pivot = left + rand() % (right - left + 1);
-    cout << pivot << endl;
     if(pivot != left) swap(vec[left], vec[pivot]);
     int l = left+1  , r = right;
     while(true) {
